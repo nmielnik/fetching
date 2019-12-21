@@ -1,0 +1,27 @@
+{
+  "name": "fetching",
+  "version": "0.0.0",
+  "description": "For fetching data fromt he web",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/nmielnik/fetching"
+  },
+  "author": "Nate Mielnik",
+  "license": "MIT",
+  "devDependencies": {
+    "connect": "^3.4.0",
+    "serve-static": "^1.10.0"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "espn-fantasy-football-api": "^0.15.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "bluebird": "^2.9.0",
+    "moment": "^2.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/nmielnik/fetching/issues"
+  },
+  "homepage": "http://github.com/nmielnik/fetching"
+}
