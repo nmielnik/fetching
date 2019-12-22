@@ -19,7 +19,7 @@ var getAPIKey = function () {
 		}
 	};
 	return new Promise(function (resolve, reject) {
-		if (self.cachnedKey) {
+		if (self.cachedKey) {
 			return resolve(self.cachedKey);
 		}
 		request(options)
