@@ -26,7 +26,7 @@ if (!argMap.outputFile) {
 }
 var outputFile = path.join('//EINSTEIN/Projects/Dev/Visual Studio Projects/BallersDataUtil/OldBallersData/JSON', argMap.outputFile);
 
-fetchTeamWeeks.getTeamWeeksJSON(leagueId, year, week, 1, 12)
+fetchTeamWeeks.getTeamWeeksJSON(leagueId, year, week, [1,2,3,4,5,6,7,8,9,10,11,12])
 	.then(function (result) {
 		fs.writeFileAsync(outputFile, JSON.stringify(result))
 			.then(function () {

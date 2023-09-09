@@ -35,6 +35,12 @@ var getAPIKey = function () {
 }
 
 var getAuthData = function() {
+	if (credentials.espn.S2) {
+		this.cachedS2 = credentials.espn.S2;
+	}
+	if (credentials.espn.SWID) {
+		this.cachedSWID = credentials.espn.SWID;
+	}
 	var self = this;
 	return new Promise(function (resolve, reject) {
 		if (self.cachedS2 && self.cachedSWID) {
@@ -49,13 +55,16 @@ var getAuthData = function() {
 					method: 'POST',
 					uri: "https://registerdisney.go.com/jgc/v6/client/ESPN-ONESITE.WEB-PROD/guest/login?langPref=en-US",
 					headers: {
+						'authority': 'registerdisney.go.com',
 						'content-type': 'application/json',
-						'Authorization': `APIKEY ${apiKey}`
+						'Authorization': `APIKEY ${apiKey}`,
+						'g-recaptcha-token': ''
 					},
 					body: JSON.stringify(credentials.espn)
 				};
 				request(authOptions)
 					.then(function (resp) {
+						//console.log(JSON.stringify(resp));
 						var json = JSON.parse(resp);
 						self.cachedS2 = json.data.s2;
 						self.cachedSWID = json.data.token.swid;
